@@ -200,7 +200,7 @@ export default Ember.Component.extend({
         `${actionName} for date-range-picker must be a function`,
         typeof action === 'function'
       );
-      this.sendAction(actionName, ...attrs);
+      this.sendAction(actionName, ...Object.values(attrs));
     } else {
       if (!this.isDestroyed) {
         this.setProperties(attrs);
