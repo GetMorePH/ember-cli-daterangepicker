@@ -191,7 +191,7 @@ export default Ember.Component.extend({
     let action = this.get(actionName);
     let attrs = {};
 
-    if (!isCancel) {
+    if (actionName === 'applyAction') {
       let start = picker.startDate.format(this.get('serverFormat'));
       let end = picker.endDate.format(this.get('serverFormat'));
       attrs = { start, end };
