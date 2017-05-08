@@ -34,7 +34,9 @@ export default Ember.Component.extend({
     let serverFormat = this.get('serverFormat');
     let start = this.get('start');
     let end = this.get('end');
-    if (!isEmpty(start) && !isEmpty(end)) {
+    if (this.get('singleDatePicker') && !isEmpty(start)) {
+      return moment(start, serverFormat).format(format);
+    } else if (!isEmpty(start) && !isEmpty(end)) {
       return moment(start, serverFormat).format(format) + this.get('separator') +
         moment(end, serverFormat).format(format);
     }
